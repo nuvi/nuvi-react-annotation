@@ -1,16 +1,13 @@
 {
-  "name": "react-annotation",
+  "name": "nuvi-react-annotation",
   "description": "React components for annotating SVG elements ",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "homepage": ".",
   "repository": {
     "type": "git",
-    "url": "https://github.com/susielu/react-annotation.git"
+    "url": "https://github.com/nuvi/nuvi-react-annotation.git"
   },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/susielu/react-annotation/issues"
-  },
+  "license": "ISC",
   "main": "lib/index.js",
   "web": "bundle.js",
   "scripts": {
