@@ -340,6 +340,7 @@ export default class Note extends React.Component {
             stroke="none"
             fill="white"
             fillOpacity="0"
+            onClick={this.props.onClick}
           />
           {noteTitle}
           {noteText}

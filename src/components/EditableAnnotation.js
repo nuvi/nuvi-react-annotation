@@ -65,6 +65,12 @@ export default class EditableAnnotation extends React.Component {
     )
   }
 
+  onClick() {
+    if (this.props.onClick) {
+      this.props.onClick(this.getData());
+    }
+  }
+
   render() {
     const cleanedProps = Object.assign({}, this.props, {
       ...this.state,
@@ -73,6 +79,7 @@ export default class EditableAnnotation extends React.Component {
       dragSubjectSettings: this.dragSubjectSettings.bind(this),
       dragEnd: this.dragEnd.bind(this),
       dragStart: this.dragStart.bind(this),
+      onClick: this.onClick.bind(this),
       editMode: true,
       className: classnames(this.props.className, "editable")
     })
