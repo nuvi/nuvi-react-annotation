@@ -19,6 +19,7 @@ import BracketNote from "./Note/BracketNote"
 
 import Annotation from "./Annotation"
 import EditableAnnotation from "./EditableAnnotation"
+import DraggableAnnotation from "./DraggableAnnotation"
 
 import {
   AnnotationLabel,
@@ -51,6 +52,7 @@ export {
   BracketNote,
   Annotation,
   EditableAnnotation,
+  DraggableAnnotation,
   AnnotationLabel,
   AnnotationCallout,
   AnnotationCalloutCircle,
@@ -81,6 +83,7 @@ export default {
   BracketNote,
   Annotation,
   EditableAnnotation,
+  DraggableAnnotation,
   AnnotationLabel,
   AnnotationCallout,
   AnnotationCalloutCircle,
