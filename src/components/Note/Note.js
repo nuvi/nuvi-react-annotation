@@ -31,17 +31,20 @@ export default class Note extends React.Component {
     super(props)
 
     this.updateText = this.updateText.bind(this)
+
+    this.state = {
+      translateX: 0,
+      translateY: 0,
+      labelOffset: 0,
+      changed: 0,
+      bbox: { width: 0, height: 0, x: 0, y: 0 }
+    }
   }
-  state = {
-    translateX: 0,
-    translateY: 0,
-    labelOffset: 0,
-    changed: 0,
-    bbox: { width: 0, height: 0, x: 0, y: 0 }
-  }
+
   componentDidMount() {
     this.updateText(this.props)
   }
+
   componentWillReceiveProps(nextProps) {
     if (
       nextProps.title !== this.props.title ||
@@ -57,6 +60,7 @@ export default class Note extends React.Component {
       this.updateText(nextProps)
     }
   }
+
   updateText({
     orientation,
     padding,
@@ -179,7 +183,7 @@ export default class Note extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { orientation, padding, align, dx, dy, lineType } = this.props
+    const { orientation, padding, align, dx, dy, lineType, onNoteSize } = this.props
 
     if (
       this.state.bbox.width &&
@@ -234,6 +238,10 @@ export default class Note extends React.Component {
       ) {
         this.setState(updates)
       }
+    }
+
+    if (onNoteSize) {
+      onNoteSize(this.state.bbox);
     }
   }
 

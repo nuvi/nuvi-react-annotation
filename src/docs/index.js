@@ -24,9 +24,12 @@ import {
 } from "./Sections";
 
 class Docs extends React.Component {
-  state = {
-    open: false
-  };
+  constructor () {
+    super();
+    this.state = {
+      open: false
+    };
+  }
 
   render() {
     const sections = [

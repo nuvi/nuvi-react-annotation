@@ -133,13 +133,17 @@ const typesOrder = [
 ]
 
 export default class Types extends React.Component {
-  state = {
-    name: "AnnotationLabel",
-    description: types.AnnotationLabel.summary,
-    editMode: true,
-    connector: {},
-    note: {},
-    subject: {}
+  constructor () {
+    super();
+
+    this.state = {
+      name: "AnnotationLabel",
+      description: types.AnnotationLabel.summary,
+      editMode: true,
+      connector: {},
+      note: {},
+      subject: {}
+    }
   }
 
   updateType(t) {
