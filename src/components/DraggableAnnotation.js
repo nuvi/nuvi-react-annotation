@@ -29,14 +29,11 @@ export default class Annotation extends React.Component {
     if (this.dragged && this.props.onDragEnd) {
       this.dragged = false;
       if (this.props.bounds) {
-        const xPos = this.getXOffset(this.state.dx)
-        const yPos = this.getYOffset(this.state.dy)
-        const data = Object.assign({}, this.getData(), {dx: xPos, dy: yPos});
-        this.props.onDragEnd(data);
-
         this.setState({
-          dx: xPos,
-          dy: yPos
+          dx: this.getXOffset(this.state.dx),
+          dy: this.getYOffset(this.state.dy)
+        }, () => {
+          this.props.onDragEnd(this.getData())
         })
       } else {
         this.props.onDragEnd(this.getData())
