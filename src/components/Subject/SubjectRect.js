@@ -6,13 +6,13 @@ import Subject from "./Subject"
 import PropTypes from "prop-types"
 
 export default class SubjectRect extends Subject {
-  getComponents({ width = 100, height = 100, editMode }) {
+  getComponents({ width = 100, height = 100, editMode, scale = 1 }) {
     const components = Rect({ width, height, editMode })
     components.handleKeys = { width, height }
 
     components.handleFunction = (h, data) => {
       return {
-        [h.key]: h.key === "width" ? width + data.deltaX : height + data.deltaY
+        [h.key]: h.key === "width" ? width + (data.deltaX * this.props.scale) : height + (data.deltaY * this.props.scale)
       }
     }
 
@@ -23,5 +23,6 @@ export default class SubjectRect extends Subject {
 SubjectRect.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
-  editMode: PropTypes.bool
+  editMode: PropTypes.bool,
+  scale: PropTypes.number
 }

@@ -41,8 +41,8 @@ export default class EditableAnnotation extends React.Component {
   dragSubject(event, data) {
     this.setState(
       {
-        x: this.state.x + data.deltaX,
-        y: this.state.y + data.deltaY
+        x: this.state.x + (data.deltaX * this.props.scale),
+        y: this.state.y + (data.deltaY * this.props.scale)
       },
       () => {
         if (this.props.onDrag) this.props.onDrag(this.getData())
@@ -59,8 +59,8 @@ export default class EditableAnnotation extends React.Component {
   dragNote(event, data) {
     this.setState(
       {
-        dx: this.state.dx + data.deltaX,
-        dy: this.state.dy + data.deltaY
+        dx: this.state.dx + (data.deltaX * this.props.scale),
+        dy: this.state.dy + (data.deltaY * this.props.scale)
       },
       () => {
         if (this.props.onDrag) this.props.onDrag(this.getData())
@@ -83,3 +83,8 @@ export default class EditableAnnotation extends React.Component {
     return <Annotation {...cleanedProps} />
   }
 }
+
+EditableAnnotation.defaultProps = {
+  scale: 1
+}
+

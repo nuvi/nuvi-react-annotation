@@ -39,6 +39,7 @@ const annotationMapper = (
     dy,
     nx,
     ny,
+    scale,
     color,
     className,
     onDrag,
@@ -74,6 +75,7 @@ const annotationMapper = (
       dy={dy}
       nx={nx}
       ny={ny}
+      scale={scale}
       color={color}
       className={className}
       onDrag={onDrag}

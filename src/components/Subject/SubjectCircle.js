@@ -11,7 +11,8 @@ export default class SubjectCircle extends Subject {
     innerRadius,
     outerRadius,
     radiusPadding,
-    editMode
+    editMode,
+    scale = 1
   }) {
     const components = Circle({
       radius,
@@ -24,7 +25,7 @@ export default class SubjectCircle extends Subject {
     components.handleKeys = { radius, innerRadius, outerRadius }
     components.handleFunction = (h, data) => {
       return {
-        [h.key]: components.handleKeys[h.key] + data.deltaX * Math.sqrt(2)
+        [h.key]: components.handleKeys[h.key] + (data.deltaX * this.props.scale) * Math.sqrt(2)
       }
     }
     return components
@@ -36,5 +37,6 @@ SubjectCircle.propTypes = {
   innerRadius: PropTypes.number,
   outerRadius: PropTypes.number,
   radiusPadding: PropTypes.number,
-  editMode: PropTypes.bool
+  editMode: PropTypes.bool,
+  scale: PropTypes.number
 }
