@@ -1,7 +1,7 @@
 {
   "name": "nuvi-react-annotation",
   "description": "React components for annotating SVG elements ",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "homepage": ".",
   "repository": {
     "type": "git",
